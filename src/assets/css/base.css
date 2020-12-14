@@ -1,0 +1,73 @@
+@import "./normalize.css";
+
+/*  :root -> 获取根元素html*/
+:root {
+  /* --xxx:  ->定义变量；在后面可以以var(xxx)使用*/
+  --color-text: #666;
+  --color-high-text: #ff5777;
+  --color-tint: #ff8198;
+  --color-background: #fff;
+  --font-size: 14px;
+  --line-height: 1.5;
+}
+
+/*伪元素，添加一个页面中没有的元素（仅仅从视觉效果上添加），before在*之后的样式，after在*之前的样式*/
+/* * 相当于选择器，代表html所有的元素，包括html标签、body标签等；*/
+*,
+*::before,
+*::after {
+  margin: 0;   /*外边距*/
+  padding: 0;   /*内边距*/
+  box-sizing: border-box;   /*规定容器元素的最终尺寸计算方式*/
+}
+
+/*body只是一个标签，如果它的子标签和该属性均具有继承性，才会继承这里所设置的属性；*/
+body {
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  user-select: none; /* 禁止用户鼠标在页面上选中文字/图片等 */
+  -webkit-tap-highlight-color: transparent; /* webkit是苹果浏览器引擎，tap点击，highlight背景高亮，color颜色，颜色用数值调节 */
+  background: var(--color-background);
+  color: var(--color-text);
+  width: 100vw;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* 浮动清除，使父元素被子元素正常撑开*/
+/* 关于浮动清除的讲解：https://www.jianshu.com/p/9d6a6fc3e398 */
+/* jsrun上可以尝试跑代码 */
+.clear-fix::after {
+  clear: both;
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.clear-fix {
+  zoom: 1;
+}
+
+.arrow-right {
+  border-top: 1px solid #999;
+  border-left: 1px solid #999;
+  width: 9px;
+  height: 9px;
+  background-color: transparent;
+  transform: rotate(135deg);
+  display: inline-block;
+  margin-left: .1rem;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
